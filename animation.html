@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/animation.css"> 
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+	<!-- <script src="js/animation.js"></script> -->
+
+	<script>
+	$(document).ready(function(){
+		$('.progress').on('mouseenter', function(){
+			$('.meter').animate({
+				width: "100%"
+			}, {
+				step: function(){
+					var progress = $('.meter').width() / 5;
+					progress = Math.round(progress);
+
+					$('.numbers').html(progress + "%");
+
+				},
+				duration: 3000
+			});
+		}).on('mouseout', function(){
+			$('.meter').animate({
+				width: "0%"
+			}, {
+				progress: function(){
+					var progress = $('.meter').width() / 5;
+					progress = Math.round(progress);
+					
+					$('.numbers').html(progress + "%");
+
+
+				},
+				duration: 3000
+
+			});
+		});
+
+	});
+	</script>
+</head>
+<body>
+<!-- 	<div id="container">
+	
+</div>
+
+<div id="spinner">
+	
+</div> -->
+
+<img class="logo" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRdtpHnQdREZxYa36h4McQJfIQ27YunFvtLUes7qZoZU2I0ZFrSNg" alt="">
+
+<div class="progress">
+	<div class="meter"></div>
+	<div class="numbers">100%</div>
+
+</div>
+</body>
+</html>
